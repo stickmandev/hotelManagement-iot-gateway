@@ -1,0 +1,7 @@
+cd "hotel_backend/iot_gateway"
+python -m venv .venv && source .venv/bin/activate
+pip install fastapi uvicorn paho-mqtt httpx python-dotenv
+export MQTT_BROKER=broker.hivemq.com
+export MQTT_PORT=1883
+export BACKEND_BASE=http://localhost:8000
+uvicorn main:app --reload --port 9000
