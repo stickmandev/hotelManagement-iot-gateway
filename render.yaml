@@ -15,6 +15,6 @@ services:
       - key: MQTT_BROKER
         sync: false
       - key: MQTT_PORT
-        sync: false
+        value: "1883"
       - key: BACKEND_BASE
         sync: false

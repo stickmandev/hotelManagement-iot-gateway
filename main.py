@@ -7,7 +7,11 @@ from paho.mqtt import client as mqtt_client
 
 
 MQTT_BROKER = os.getenv('MQTT_BROKER', 'broker.hivemq.com')
-MQTT_PORT = int(os.getenv('MQTT_PORT', '1883'))
+try:
+    MQTT_PORT = int(os.getenv('MQTT_PORT', '1883'))
+except Exception:
+    print('Invalid MQTT_PORT env var; defaulting to 1883')
+    MQTT_PORT = 1883
 BACKEND_BASE = os.getenv('BACKEND_BASE', 'http://localhost:8000')
 STATUS_TOPIC = 'hotel/devices/+/status'
 WILL_TOPIC_TEMPLATE = 'hotel/devices/{device_id}/lwt'
